@@ -1,11 +1,12 @@
 import { toDoItemTemplate } from ".././templates/toDoItemTemplate";
 import { subscribe } from ".././models/toDoListModel";
+import { deleteToDoController } from "../controllers/deleteToDoController";
 
 let view;
 
 export function toDoListView() {
     view = document.querySelector('#to-do-list')
-    // render()
+    view.addEventListener('click', onHandleClick)
 }
 
 subscribe(render)
@@ -20,4 +21,12 @@ function render(data){
     });
 
     toDoList.append(div)
+}
+
+function onHandleClick(e){
+    switch(e.target.id) {
+        case 'delete':
+            deleteToDoController(e.target.dataset.uid)
+            break
+    }
 }
