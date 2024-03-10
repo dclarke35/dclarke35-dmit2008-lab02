@@ -1,3 +1,5 @@
+import { deleteToDo } from "../models/toDoListModel"
+
 let dialog
 let deleteButton
 let exitButton
@@ -22,6 +24,6 @@ function onCloseDialog(e) {
 }
 
 function onRemoveToDo(e){
-    console.log(`delete to do item ${uid}`)
+    deleteToDo(uid)
     onCloseDialog()
 }
