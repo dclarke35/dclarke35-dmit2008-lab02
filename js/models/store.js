@@ -1,7 +1,7 @@
 let store
 let instance
 
-const createStore = async => {
+const createStore = async (todos) => {
     if (instance) {
         throw new Error('New instance cannot be created')
     }

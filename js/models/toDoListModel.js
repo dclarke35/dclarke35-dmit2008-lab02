@@ -22,7 +22,10 @@ export async function getToDoData() {
         return {...item[1], uid: item [0]}
     })
 
-    notify(toDoItems)
+    if (await createStore(toDoItems)) {
+        notify(toDoItems)
+    }
+    
 }
 
 export function deleteToDo(uid){
